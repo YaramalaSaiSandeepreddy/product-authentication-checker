@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: product-authentication-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && playwright install chromium
+    startCommand: gunicorn app:app

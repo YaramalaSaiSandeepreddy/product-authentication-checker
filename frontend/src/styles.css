@@ -1,0 +1,54 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(135deg,#f8fafc,#eef2ff); }
+
+/* Hero */
+.hero {
+  background: linear-gradient(90deg, rgba(99,102,241,0.08), rgba(14,165,233,0.04));
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.06);
+}
+
+/* Animated button */
+.btn-dynamic {
+  @apply inline-flex items-center gap-3 px-5 py-3 rounded-2xl font-semibold shadow-lg transform transition-all;
+  background-image: linear-gradient(90deg,#6366f1,#06b6d4);
+  color: white;
+}
+.btn-dynamic:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 30px rgba(99,102,241,0.18); }
+
+/* Product card */
+.product-card {
+  @apply rounded-2xl p-4 bg-white shadow-md transition-transform transform;
+}
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.08); }
+.product-image { @apply rounded-xl overflow-hidden; }
+.product-image img { transition: transform .45s ease; }
+.product-image:hover img { transform: scale(1.08); }
+
+/* Badge */
+.badge-real { @apply px-3 py-1 rounded-full text-sm font-semibold; background: linear-gradient(90deg,#10b981,#059669); color:white; }
+.badge-fake { @apply px-3 py-1 rounded-full text-sm font-semibold; background: linear-gradient(90deg,#ef4444,#b91c1c); color:white; }
+
+/* subtle shimmer for loading */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.2), rgba(255,255,255,0.6));
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+@keyframes shimmer { 0% { background-position: -200% 0 } 100% { background-position: 200% 0 } }
+
+
+/* Extra polished animations */
+.fade-in { animation: fadeIn .5s ease both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to {opacity:1; transform:none;} }
+
+.result-card { transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s; }
+.result-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(2,6,23,0.12); }
+
+.header-icon { width:46px; height:46px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; box-shadow: 0 6px 18px rgba(99,102,241,0.12); background: linear-gradient(135deg,#6366f1,#06b6d4); color:white; }
